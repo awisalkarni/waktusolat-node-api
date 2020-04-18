@@ -1,3 +1,4 @@
+require('dotenv').config()
 // Import express
 let express = require('express')
 // Initialize the app
@@ -19,7 +20,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost/waktusolat-api', { useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/waktusolat-api', { useNewUrlParser: true});
 
 var db = mongoose.connection;
 
