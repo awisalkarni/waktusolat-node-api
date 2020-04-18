@@ -6,6 +6,7 @@ let app = express();
 
 let bodyParser = require('body-parser');
 let mongoose  = require('mongoose');
+const path = require('path');
 
 // Setup server port
 var port = process.env.PORT || 8080;
@@ -13,6 +14,7 @@ var port = process.env.PORT || 8080;
 // Add the code below to index.js
 // Import routes
 let apiRoutes = require("./api-routes")
+app.use(express.static(__dirname + '/assets'));
 
 app.use(bodyParser.urlencoded({
 	extended: true
@@ -27,8 +29,9 @@ var db = mongoose.connection;
 // Use Api routes in the App
 app.use('/api', apiRoutes)
 
-// Send message for default URL
-app.get('/', (req, res) => res.send('Hello World with Express'));
+app.get('/',function(req,res) {
+  res.sendFile(path.join(__dirname+'/index.html'));
+});
 
 
 

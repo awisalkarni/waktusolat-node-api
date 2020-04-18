@@ -1,0 +1,589 @@
+body {
+	padding-bottom: 0px;
+	-webkit-font-smoothing: antialiased;
+	font-weight: 300;
+}
+
+.wrapper {
+	padding: 0;
+	margin-top: 0;
+}
+
+.header {
+	position: fixed;
+	min-height: 30px;
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+
+.dark-bg {
+	background: #333;
+	border-top: 1px solid #000;
+}
+
+ul.sidebar-menu {
+	margin-top: 35px;
+}
+
+#mobile-menu a {
+	color: white;
+}
+
+a.logo {
+	font-size: 17px;
+	margin-top: 5px;
+}
+
+.sidebar-toggle-box {
+	margin-top: 5px;
+	padding-right: 5px;
+}
+
+#sidebar {
+	position: fixed;
+}
+
+.enforce .list-group-item:first-child, .enforce .list-group-item:last-child {
+	border-radius: 0px;
+}
+
+.enforce .type-toggle {
+	position: fixed;
+	right: 10px;
+}
+
+
+.enforce .topbar {
+	position: relative;
+}
+
+.enforce h3 {
+	font-size: 18px;
+	height: 47px;
+	padding: 12px 10px 12px 15px;
+	margin-top: 0;
+	margin-bottom: 0;
+	background: #2980b9;
+	color: #fff;
+	height: 47px;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+}
+
+.enforce .list-group {
+	margin-bottom:  0px;
+	padding-top: 39px;
+}
+
+.enforce .list-group.plate {
+	padding-top: 119px;
+}
+
+.enforce .list-group.lot {
+	padding-top: 40px;
+}
+
+
+.btn-enforce {
+  color: #333 !important;
+  background-color: #FFF;
+  border-color: #000;
+  font-weight: normal;
+}
+
+.btn-enforce:hover,
+.btn-enforce:focus,
+.btn-enforce:active,
+.btn-enforce.active,
+.open .dropdown-toggle.btn-enforce {
+  color: #fff !important;
+  background-color: #666;
+  border-color: #000;
+}
+
+.btn-enforce:active,
+.btn-enforce.active,
+.open .dropdown-toggle.btn-enforce {
+  background-image: none;
+}
+
+.enforce a.list-group-item {
+	font-size: 17px;
+	
+}
+
+.enforce .lot div.list-group-item, .enforce .plate div.list-group-item {
+	font-size: 30px;
+	padding: 0px 0px 0px 10px;
+	letter-spacing: 1px;
+	cursor: pointer;
+	position: relative;
+}
+
+.fa-arrow-circle-left {
+	margin-top: 4px;
+	margin-right: 7px;
+}
+
+.enforce .fa-angle-right {
+	margin-top: 4px;
+}
+
+.enforce .fa-arrow-circle-left {
+	margin-right: 10px;
+	color: white;
+}
+
+.enforce .fa-arrow-circle-left:hover {
+	opacity: 0.8;
+}
+
+.enforce .toggle-item {
+	margin-top: -5px;
+}
+
+.enforce .neutral {
+	background: white;
+}
+
+.enforce .valid {
+	background: #42a35a;
+	border: 1px solid #29b765;
+	color: white;
+}
+
+.enforce .extra {
+	background: orange;
+	border: 1px solid #29b765;
+	color: white;
+}
+
+.enforce .expired {
+	background: #ca3838;
+	border: 1px solid #666;
+	color: white;
+}
+
+.enforce .lot-plate-element {
+	display: inline-block;
+	padding: 5px 5px;
+	float: left;
+	font-size: 27px;
+	min-width: 100px;
+	text-align: center;
+	margin-left: 10px;
+	font-weight: 400;
+}
+
+.enforce .lot-plate-number {
+	opacity: 0.6 !important;
+}
+
+.enforce .plate-compounded-element {
+	display: inline-block;
+	padding: 5px 5px;
+	float: right;
+	font-size: 27px;
+	min-width: 100px;
+	text-align: center;
+}
+
+.enforce .lot-element, .enforce .plate-element {
+	padding: 4px;
+	display: inline-block;
+	float: left;
+	/*font-size: 20px;*/
+	font-weight: 400;
+}
+
+.enforce .lot-element div.label {
+	font-size: 29px;
+	min-width: 80px;
+	padding: .2em .2em .2em;
+	display: block;
+}
+
+.enforce .last-session {
+	color: black;
+	box-shadow: 1px 1px 2px #27ae60 inset;
+	border: 1px solid #27ae60;
+	background: #27ae60; /* Old browsers */
+	background: -moz-linear-gradient(top, #27ae60 1%, #2ecc71 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#27ae60), color-stop(100%,#2ecc71)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #27ae60 1%,#2ecc71 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #27ae60 1%,#2ecc71 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #27ae60 1%,#2ecc71 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #27ae60 1%,#2ecc71 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#27ae60', endColorstr='#2ecc71',GradientType=0 ); /* IE6-9 */
+}
+
+.enforce .last-compounded, .enforce .plate-compounded-element  {
+	/*box-shadow: 1px 1px 2px #27ae60 inset;*/
+	border: 1px solid #ca3838;
+	border-left: 1px solid #c0392b;
+	background: red; /* Old browsers */
+	color: white;
+	float: right;
+	margin-left: 0px;
+	opacity: 1;
+}
+
+.enforce .last-compounded {
+	min-width: 150px;
+}
+
+.enforce .hide-quick {
+	opacity: 0 !important;
+}
+
+.enforce .show-quick {
+	opacity: 1;
+}
+
+.type-backdrop {
+	position: fixed; top: 130px; bottom: 0; right: 0; left: 0; text-align: center; z-index: 1;
+}
+
+.type-backdrop i {
+	margin-top: 50px;
+	font-size: 40px;
+	color: #D0D0D0;
+}
+
+.modal-content {
+	border-radius: 0;
+}
+
+.modal-dialog {
+	margin: 0px auto;
+}
+
+#lotDetails .modal-title {
+	margin: 0;
+	line-height: 1.42857143;
+	padding-left: 6px;
+	color: #3b5998;
+	font-weight: 500;
+}
+
+#lotDetails .modal-body, #plateDetails .modal-body {
+	padding: 0px;
+}
+
+#lotDetails .modal-header, #plateDetails .modal-header {
+	border-bottom: none;
+	padding: 5px;
+}
+
+.modal-footer {
+	padding: 3px 3px 3px;
+	margin-top: -10px;
+	border-top: none;
+}
+
+#lotDetails .panel-body, #plateDetails .details {
+	padding: 5px;
+}
+
+#lotDetails .panel-heading, #plateDetails .panel-heading {
+	padding: 8px 2px 8px 8px;
+	border-radius: 0px;
+}
+
+#lotDetails .panel-title, #plateDetails .panel-title {
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+#lotDetails .panel.expired .panel-heading {
+	background:	#ca3838;
+	color: white;
+	border-top: 1px solid #ca3838;
+	border-bottom: 1px solid #ca3838;
+}
+
+#lotDetails .panel.extra .panel-heading {
+	background:	orange;
+	border-top: 1px solid red;
+	border-bottom: 1px solid red;
+	color: white;
+}
+
+#lotDetails .panel.valid .panel-heading {
+	background:	#42a35a;
+	border-top: 1px solid #29b765;
+	border-bottom: 1px solid #29b765;
+	color: white;
+}
+
+#lotDetails .panel-group .panel+.panel {
+	margin-top: 0px;
+}
+
+#lotDetails .panel-body span {
+	margin-left: 10px;
+	font-weight: 600;
+}
+
+#lotDetails button.close, #plateDetails button.close {
+	margin: -2px 5px 0 0;
+	font-size: 30px;
+}
+
+#lotDetails .panel-title button.btn {
+	margin-top: -6px;
+	margin-left: 2px;
+	min-width: 100px;
+}
+
+#lotDetails .panel-title a:link:hover {
+	color: white;
+}
+
+#lotDetails .panel-group .panel-heading+.panel-collapse .panel-body {
+	border-top: none;
+	font-size: 13px;
+	color: #555;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+#lotDetails .panel-group .panel-heading+.panel-collapse .panel-body div {
+	margin-bottom: 3px;
+	border-bottom: 1px solid #F7F7F7;
+	padding: 0 5px 5px 5px;
+}
+
+#lotDetails .panel-group .panel-heading+.panel-collapse .panel-body div:last-child {
+	border-bottom: none;
+	margin-bottom: 0px;
+	padding-bottom: 2px;
+}
+
+#lotDetails .backdrop, #plateDetails .backdrop {
+	text-align: center;
+	font-size: 30px;
+	color: #ddd;
+	margin: 40px 0 50px 0;
+}
+
+#lotDetails .search_lot, .enforce .search_plate {
+	padding: 5px;
+	background: #F0F0F0;
+}
+
+.enforce .search_plate {
+	position: fixed;
+	z-index: 1;
+	top: 40px;
+}
+
+#lotDetails .search_lot input, .enforce .search_plate input {
+	border-radius: 0px;
+}
+
+#plateDetails .modal-title {
+	margin: 0;
+	line-height: 1.42857143;
+	padding-left: 6px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+#plateDetails .modal-header.valid {
+	background: #42a35a;
+	color: white;
+}
+
+#plateDetails .modal-header.extra {
+	background: orange;
+	color: white;
+}
+
+#plateDetails .modal-header.expired {
+	background: #ca3838;
+	color: white;
+}
+
+div.details {
+	margin-bottom: 15px;
+}
+
+div.details div {
+	margin-bottom: 3px;
+	border-bottom: 1px solid #F7F7F7;
+	padding: 0 5px 5px 5px;
+	color: #555;
+	font: 13px;
+}
+
+div.details div:last-child {
+	border-bottom: none;
+}
+
+div.details div span {
+	margin-left: 10px;
+	font-weight: 600;
+}
+
+#notificationModal .notice {
+	background: white;
+	color: black;
+}
+
+#notificationModal .alert {
+	background: maroon;
+	color: white;
+}
+
+#notificationModal .modal-body {
+	padding: 0;
+	margin: 10px;
+	margin-bottom: 20px;
+}
+
+#notificationModal .modal-header .close {
+	margin-top: 3px;
+	font-size: 30px;
+	margin-right: 10px;
+	color: white;
+	opacity: 0.5;
+}
+
+#notificationModal .modal-header {
+	padding: 0;
+}
+
+#notificationModal .modal-header .modal-title {
+	border-radius: 0px;
+	padding: 7px;
+}
+
+.enforce .list-group-item span.highlight {
+	font-weight: bold;
+}
+
+.item-header .fa.status {
+	position: relative;
+	right: 7px;
+	top: 2px;
+	cursor: pointer;
+}
+
+.item-header .fa-retweet:hover {
+	opacity: 0.8;
+}
+
+.item-header .popover-title {
+	color: #333;
+	font-weight: bold;
+}
+
+.item-header .popover-content {
+	color: #333;
+	text-transform: none;
+	font-size: 15px;
+}
+
+a.logo span {
+	color: white;
+}
+
+[popover-alert=danger]+.popover {
+	color: red;
+}
+
+[popover-alert=danger]+.popover .popover-title {
+	background: maroon;
+	color: white;
+}
+
+[popover-alert=danger] {
+	color: red;
+}
+
+.popover {
+	border-radius: 0px;
+}
+
+.popover-title {
+	border-radius: 0px;
+}
+
+ .fa-blink {
+  display: inline-block;
+  -moz-animation: pulse 1s infinite linear;
+  -o-animation: pulse 1s infinite linear;
+  -webkit-animation: pulse 1s infinite linear;
+  animation: pulse 1s infinite linear;
+}
+
+@-webkit-keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-ms-keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.selectricWrapper {
+	margin: 1px 0 0 0;
+	width: 100%;
+}
+
+.selectricItems {
+	white-space: pre-wrap;
+}
+
+.selectric .label {
+	padding: 7px 6px;
+	font-size: 15px;
+	text-align: left;
+}
+
+.confirm-plate {
+	margin: 20px auto;
+	width: 230px;
+	font-size: 30px;
+	text-align: center;
+	color: maroon;
+	padding: 3px 6px;
+	background: #F9F9F9;
+	border: 1px solid #F0F0F0;
+	text-transform: uppercase;
+}
+
+.reservation {
+	display: none;
+	position: absolute;
+	background-image: url('images/reserved.png');
+	top: 0;
+	left: 0;
+	opacity: 0.3;
+	width: 67px;
+	height: 40px;
+	z-index: 1;
+}
+
+.reserved .reservation {
+	display: block;
+}
