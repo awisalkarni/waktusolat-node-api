@@ -23,7 +23,7 @@ var prayTimeSchema = mongoose.Schema({
     	required: true
     }
 });
-// Export Contact model
+
 var PrayTime = module.exports = mongoose.model('pray_time', prayTimeSchema);
 module.exports.get = function (callback, limit) {
     PrayTime.find(callback).limit(limit);
