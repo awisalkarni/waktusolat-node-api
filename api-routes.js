@@ -11,6 +11,7 @@ router.get('/', function (req, res) {
 
 // Import contact controller
 var contactController = require('./controllers/contactController');
+var prayTimeController = require('./controllers/prayTimeController');
 // Contact routes
 router.route('/contacts')
     .get(contactController.index)
@@ -20,6 +21,10 @@ router.route('/contacts/:contact_id')
     .patch(contactController.update)
     .put(contactController.update)
     .delete(contactController.delete);
-    
+
+router.route('/v1/waktu-solat')
+	.get(prayTimeController.view)
+router.route('/v2/waktu-solat')
+	.get(prayTimeController.index)
 // Export API routes
 module.exports = router;
