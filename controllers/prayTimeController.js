@@ -52,11 +52,16 @@ exports.view = function(req, res) {
             
             data: {
             	pray: {
+            		pray_list: [],
             		pray_time : prayTimesArray
-            	}
+            	},
+            	zone: req.query.zone,
+            	origin: "",
+            	state: "",
+            	month: req.query.month,
+            	year: req.query.year
             },
-            meta: "success",
-            zone: req.query.zone
+            meta: "success"
         });
 	}).sort( {pray_time: 1} );
 }
