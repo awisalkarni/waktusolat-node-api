@@ -50,15 +50,24 @@ exports.view = function(req, res) {
 
         res.json({
             
-            data: {
-            	pray: {
-            		pray_list: [],
-            		pray_time : prayTimesArray
-            	},
-            	zone: req.query.zone,
-            	origin: "",
-            	state: "",
-            	month: req.query.month,
+        	data: {
+        		pray: {
+        			pray_list: [
+        			"Imsak",
+        			"Subuh",
+        			"Syuruk",
+        			"Dhuha",
+        			"Zohor",
+        			"Asar",
+        			"Maghrib",
+        			"Isyak"
+        			],
+        			pray_time : prayTimesArray
+        		},
+        		zone: req.query.zone,
+        		origin: "",
+        		state: "",
+        		month: req.query.month,
             	year: req.query.year
             },
             meta: "success"
