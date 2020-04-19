@@ -21,7 +21,7 @@ exports.index = function (req, res) {
 
 exports.view = function(req, res) {
 	console.log(req.query)
-	PrayTime.find({ month: 1, year: 2020, zone: 'sgr03'}, { pray_time:1, _id:0 }, function(err, praytimes) {
+	PrayTime.find({ month: parseInt(req.query.month, 10), year: parseInt(req.query.year, 10), zone: req.query.zone}, { pray_time:1, _id:0 }, function(err, praytimes) {
 		 if (err) {
             res.json({
                 status: "error",
@@ -49,13 +49,14 @@ exports.view = function(req, res) {
         });
 
         res.json({
-            meta: "success",
-            message: "waktusolat retrieved successfully",
+            
             data: {
             	pray: {
             		pray_time : prayTimesArray
             	}
-            }
+            },
+            meta: "success",
+            zone: req.query.zone
         });
 	}).sort( {pray_time: 1} );
 }
