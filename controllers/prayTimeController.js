@@ -65,8 +65,8 @@ exports.view = function(req, res) {
         			pray_time : prayTimesArray
         		},
         		zone: req.query.zone,
-        		origin: "",
-        		state: "",
+        		origin: "Kuala Lumpur",
+        		state: "KUALA LUMPUR",
         		month: req.query.month,
             	year: req.query.year
             },
