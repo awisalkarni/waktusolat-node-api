@@ -18,7 +18,7 @@ var prayTimeSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    pray: {
+    pray_time: {
     	type: Number,
     	required: true
     }

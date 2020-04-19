@@ -21,38 +21,41 @@ exports.index = function (req, res) {
 
 exports.view = function(req, res) {
 	console.log(req.query)
-	PrayTime.find({ month: 1, year: 2020, zone: 'sgr03'}, {pray_time:1, _id:0}, function(err, praytimes) {
+	PrayTime.find({ month: 1, year: 2020, zone: 'sgr03'}, { pray_time:1, _id:0 }, function(err, praytimes) {
 		 if (err) {
             res.json({
                 status: "error",
                 message: err,
             });
         }
+
+        // praytimes = praytimes.sort({pray_time:1});
         var count = 0;
         var prayTimesArray = [];
-        console.log(praytimes);
+        var prayTime = [];
 
-        // praytimes.forEach(function(item, index) {
-        // 	if (count == 0) {
-        // 		var prayTime = [];
-        // 	}
-        	
-        // 	prayTime.push(item.pray_time);
-        // 	count++;
-        // 	if (count==8) {
-        // 		prayTimesArray.push(prayTime);
-        // 		count = 0;
-        // 	}
-        // });
+        praytimes.forEach(function(item, index) {
+
+        	if (count == 0) {
+        		prayTime = [];
+        	}
+        	// console.log(prayTime);
+        	prayTime.push(item.pray_time);
+        	count++;
+        	if (count==8) {
+        		prayTimesArray.push(prayTime);
+        		count = 0;
+        	}
+        });
 
         res.json({
             meta: "success",
             message: "waktusolat retrieved successfully",
             data: {
             	pray: {
-            		pray_time : praytimes
+            		pray_time : prayTimesArray
             	}
             }
         });
-	});
+	}).sort( {pray_time: 1} );
 }
