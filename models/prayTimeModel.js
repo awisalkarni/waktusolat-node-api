@@ -21,6 +21,10 @@ var prayTimeSchema = mongoose.Schema({
     pray_time: {
     	type: Number,
     	required: true
+    },
+    name: {
+        type: String,
+        required: true
     }
 });
 
