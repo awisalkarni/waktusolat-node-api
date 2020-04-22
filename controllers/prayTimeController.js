@@ -23,7 +23,7 @@ exports.index = function (req, res) {
 exports.view = async function(req, res) {
 	console.log(req.query)
     var query = { month: parseInt(req.query.month, 10), year: parseInt(req.query.year, 10), zone: req.query.zone.toUpperCase()};
-    var columns = { day:1, prayer_time:1, _id:0 };
+    var columns = { day:1, prayer_time:1, name: 1, _id:0 };
     var zone;
 
     await Zone.findOne({code: req.query.zone.toUpperCase()}, function(err, row) { 
@@ -42,6 +42,7 @@ exports.view = async function(req, res) {
             message: "Zone not found"
         })
     }
+
 	PrayTime.find(query, columns, function(err, praytimes) {
 		 if (err) {
             res.json({
@@ -50,25 +51,38 @@ exports.view = async function(req, res) {
             });
         }
 
+        // console.log(praytimes);
+
         // praytimes = praytimes.sort({pray_time:1});
         var count = 0;
+        var day = 1;
+        var prayTimesGrouped = [];
         var prayTimesArray = [];
-        var prayTime = [];
+        
 
-        praytimes.forEach(function(item, index) {
+        var maxDay = praytimes[praytimes.length - 1].day;
+        console.log(maxDay);
 
-        	if (count == 0) {
-        		prayTime = [];
-        	}
-        	// console.log(prayTime);
-        	prayTime.push(parseInt(item.prayer_time));
-        	count++;
-        	if (count==8) {
-                prayTime.sort();
-        		prayTimesArray.push(prayTime);
-        		count = 0;
-        	}
+        
+
+        prayTimesMap = groupBy(praytimes, prayerTime => prayerTime.day);
+        prayTimesArray = Array.from(prayTimesMap);
+
+        prayTimesArray.forEach(function(prayTimesDay, day) {
+
+            var prayTime = [];
+
+            prayTimesDay.forEach(function(item, index){
+
+                prayTime.push(item.prayer_time);
+
+            });
+
+            prayTimesGrouped.push(prayTime);
+
         });
+
+        console.log(prayTimesGrouped);
 
         res.json({
             
@@ -84,7 +98,7 @@ exports.view = async function(req, res) {
         			"Maghrib",
         			"Isyak"
         			],
-        			pray_time : prayTimesArray
+        			pray_time : prayTimesGrouped
         		},
         		zone: zone.code,
         		origin: zone.location,
@@ -93,5 +107,19 @@ exports.view = async function(req, res) {
             },
             meta: "success"
         });
-	});
+	}).group('day');
+}
+
+function groupBy(list, keyGetter) {
+    const map = new Map();
+    list.forEach((item) => {
+         const key = keyGetter(item);
+         const collection = map.get(key);
+         if (!collection) {
+             map.set(key, [item]);
+         } else {
+             collection.push(item);
+         }
+    });
+    return map;
 }
