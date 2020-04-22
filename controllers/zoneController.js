@@ -11,9 +11,8 @@ exports.index = function (req, res) {
             });
         }
         res.json({
-            status: "success",
-            message: "Zones retrieved successfully",
-            data: zone
+            data: zone,
+            count: zone.length
         });
     });
 };
