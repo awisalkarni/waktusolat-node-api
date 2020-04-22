@@ -2,8 +2,16 @@
 var mongoose = require('mongoose');
 // Setup schema
 var prayTimeSchema = mongoose.Schema({
+    pray_id: {
+        type: Number,
+        required: true
+    },
     zone: {
         type: String,
+        required: true
+    },
+    day: {
+        type: Number,
         required: true
     },
     month: {
@@ -14,18 +22,15 @@ var prayTimeSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    pray_time: {
-    	type: Number,
+    prayer_time: {
+    	type: String,
     	required: true
     },
     name: {
         type: String,
         required: true
-    },
-    pray_id: {
-        type: Number
     }
-});
+}, {timestamps: true});
 
 var PrayTime = module.exports = mongoose.model('pray_time', prayTimeSchema);
 module.exports.get = function (callback, limit) {

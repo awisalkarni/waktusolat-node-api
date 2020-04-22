@@ -1,6 +1,7 @@
 //prayTimeController.js
 
 PrayTime = require('../models/prayTimeModel');
+Zone = require('../models/zoneModel');
 // Handle index actions
 exports.index = function (req, res) {
     PrayTime.get(function (err, praytimes) {
@@ -19,9 +20,29 @@ exports.index = function (req, res) {
     });
 };
 
-exports.view = function(req, res) {
+exports.view = async function(req, res) {
 	console.log(req.query)
-	PrayTime.find({ month: parseInt(req.query.month, 10), year: parseInt(req.query.year, 10), zone: req.query.zone}, { pray_time:1, _id:0 }, function(err, praytimes) {
+    var query = { month: parseInt(req.query.month, 10), year: parseInt(req.query.year, 10), zone: req.query.zone.toUpperCase()};
+    var columns = { day:1, prayer_time:1, _id:0 };
+    var zone;
+
+    await Zone.findOne({code: req.query.zone.toUpperCase()}, function(err, row) { 
+        if (err) {
+            res.json({
+                status: "error",
+                message: err,
+            });
+        }
+        zone = row;
+    });
+
+    if (zone == undefined) {
+        res.json({
+            status: "Error",
+            message: "Zone not found"
+        })
+    }
+	PrayTime.find(query, columns, function(err, praytimes) {
 		 if (err) {
             res.json({
                 status: "error",
@@ -40,7 +61,7 @@ exports.view = function(req, res) {
         		prayTime = [];
         	}
         	// console.log(prayTime);
-        	prayTime.push(item.pray_time);
+        	prayTime.push(parseInt(item.prayer_time));
         	count++;
         	if (count==8) {
         		prayTimesArray.push(prayTime);
@@ -64,9 +85,8 @@ exports.view = function(req, res) {
         			],
         			pray_time : prayTimesArray
         		},
-        		zone: req.query.zone,
-        		origin: "Kuala Lumpur",
-        		state: "KUALA LUMPUR",
+        		zone: zone.code,
+        		origin: zone.location,
         		month: req.query.month,
             	year: req.query.year
             },
