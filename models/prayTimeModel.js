@@ -2,10 +2,6 @@
 var mongoose = require('mongoose');
 // Setup schema
 var prayTimeSchema = mongoose.Schema({
-    id: {
-        type: Number,
-        required: true
-    },
     zone: {
         type: String,
         required: true
@@ -25,6 +21,9 @@ var prayTimeSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
+    },
+    pray_id: {
+        type: Number
     }
 });
 

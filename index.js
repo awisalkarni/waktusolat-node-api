@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/waktusolat-api', { useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/waktusolat-api', { useNewUrlParser: true, useUnifiedTopology: true});
 
 var db = mongoose.connection;
 
