@@ -92,5 +92,5 @@ exports.view = async function(req, res) {
             },
             meta: "success"
         });
-	}).sort( {pray_time: 1} );
+	});
 }
