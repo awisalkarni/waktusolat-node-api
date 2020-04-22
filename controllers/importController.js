@@ -49,20 +49,20 @@ function downloadPrayTime(zone, res){
 			.replace('Dis', 'Dec')
 			.toLowerCase();
 
-			dateParsed = moment(date, "D-MMM-YYYY");
+			dateParsed = moment(date, "DD-MMM-YYYY");
 
 			var month = dateParsed.month()+1;
 			var year = dateParsed.year();
 			var day = dateParsed.date();
 
-			var imsak = moment(date + ' ' + prayerTime[prayerDay].imsak, "D-MMM-YYYY HH:mm:ss").format('X');
-			var subuh = moment(date + ' ' + prayerTime[prayerDay].fajr, "D-MMM-YYYY HH:mm:ss").format('X');
-			var syuruk = moment(date + ' ' + prayerTime[prayerDay].syuruk, "D-MMM-YYYY HH:mm:ss").format('X');
+			var imsak = moment(date + ' ' + prayerTime[prayerDay].imsak, "DD-MMM-YYYY HH:mm:ss").format('X');
+			var subuh = moment(date + ' ' + prayerTime[prayerDay].fajr, "DD-MMM-YYYY HH:mm:ss").format('X');
+			var syuruk = moment(date + ' ' + prayerTime[prayerDay].syuruk, "DD-MMM-YYYY HH:mm:ss").format('X');
 			
-			var zohor = moment(date + ' ' + prayerTime[prayerDay].dhuhr, "D-MMM-YYYY HH:mm:ss").format('X');
-			var asar = moment(date + ' ' + prayerTime[prayerDay].asr, "D-MMM-YYYY HH:mm:ss").format('X');
-			var maghrib = moment(date + ' ' + prayerTime[prayerDay].maghrib, "D-MMM-YYYY HH:mm:ss").format('X');
-			var isyak = moment(date + ' ' + prayerTime[prayerDay].isha, "D-MMM-YYYY HH:mm:ss").format('X');
+			var zohor = moment(date + ' ' + prayerTime[prayerDay].dhuhr, "DD-MMM-YYYY HH:mm:ss").format('X');
+			var asar = moment(date + ' ' + prayerTime[prayerDay].asr, "DD-MMM-YYYY HH:mm:ss").format('X');
+			var maghrib = moment(date + ' ' + prayerTime[prayerDay].maghrib, "DD-MMM-YYYY HH:mm:ss").format('X');
+			var isyak = moment(date + ' ' + prayerTime[prayerDay].isha, "DD-MMM-YYYY HH:mm:ss").format('X');
 
 			var dhuha = (parseInt(syuruk)-parseInt(subuh))/3 + parseInt(syuruk) + "";
 
