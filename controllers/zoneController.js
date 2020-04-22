@@ -3,7 +3,7 @@
 Zone = require('../models/zoneModel');
 // Handle index actions
 exports.index = function (req, res) {
-    Zone.get(function (err, zone) {
+    Zone.find({},{_id: 0},function (err, zone) {
         if (err) {
             res.json({
                 status: "error",
