@@ -64,6 +64,7 @@ exports.view = async function(req, res) {
         	prayTime.push(parseInt(item.prayer_time));
         	count++;
         	if (count==8) {
+                prayTime.sort();
         		prayTimesArray.push(prayTime);
         		count = 0;
         	}
