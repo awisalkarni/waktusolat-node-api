@@ -50,6 +50,7 @@ function downloadPrayTime(zone, res){
 			.toLowerCase();
 
 			dateParsed = moment(date, "DD-MMM-YYYY");
+			hijriDate = prayerTime[prayerDay].hijri;
 
 			var month = dateParsed.month()+1;
 			var year = dateParsed.year();
@@ -67,14 +68,14 @@ function downloadPrayTime(zone, res){
 			var dhuha = (parseInt(syuruk)-parseInt(subuh))/3 + parseInt(syuruk) + "";
 
 			
-			prayTimeArray.push({ pray_id: 1, name: "imsak", prayer_time: imsak, year: year, month: month, zone: zone, day: day});
-			prayTimeArray.push({ pray_id: 2, name: "subuh", prayer_time: subuh, year: year, month: month, zone: zone, day: day });
-			prayTimeArray.push({ pray_id: 3, name: "syuruk", prayer_time: syuruk, year: year, month: month, zone: zone, day: day });
-			prayTimeArray.push({ pray_id: 4, name: "dhuha", prayer_time: dhuha, year: year, month: month, zone: zone, day: day });
-			prayTimeArray.push({ pray_id: 5, name: "zohor", prayer_time: zohor, year: year, month: month, zone: zone, day: day });
-			prayTimeArray.push({ pray_id: 6, name: "asar", prayer_time: asar, year: year, month: month, zone: zone, day: day });
-			prayTimeArray.push({ pray_id: 7, name: "maghrib", prayer_time: maghrib, year: year, month: month, zone: zone, day: day });
-			prayTimeArray.push({ pray_id: 8, name: "isyak", prayer_time: isyak, year: year, month: month, zone: zone, day: day });
+			prayTimeArray.push({ pray_id: 1, hijri_date: hijriDate, name: "imsak", prayer_time: imsak, year: year, month: month, zone: zone, day: day});
+			prayTimeArray.push({ pray_id: 2, hijri_date: hijriDate, name: "subuh", prayer_time: subuh, year: year, month: month, zone: zone, day: day });
+			prayTimeArray.push({ pray_id: 3, hijri_date: hijriDate, name: "syuruk", prayer_time: syuruk, year: year, month: month, zone: zone, day: day });
+			prayTimeArray.push({ pray_id: 4, hijri_date: hijriDate, name: "dhuha", prayer_time: dhuha, year: year, month: month, zone: zone, day: day });
+			prayTimeArray.push({ pray_id: 5, hijri_date: hijriDate, name: "zohor", prayer_time: zohor, year: year, month: month, zone: zone, day: day });
+			prayTimeArray.push({ pray_id: 6, hijri_date: hijriDate, name: "asar", prayer_time: asar, year: year, month: month, zone: zone, day: day });
+			prayTimeArray.push({ pray_id: 7, hijri_date: hijriDate, name: "maghrib", prayer_time: maghrib, year: year, month: month, zone: zone, day: day });
+			prayTimeArray.push({ pray_id: 8, hijri_date: hijriDate, name: "isyak", prayer_time: isyak, year: year, month: month, zone: zone, day: day });
 			
 		}
 

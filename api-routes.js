@@ -26,6 +26,10 @@ router.route('/contacts/:contact_id')
 
 router.route('/v1/waktu-solat')
 	.get(prayTimeController.view)
+
+router.route('/v2/waktu-solat')
+    .get(prayTimeController.view_version_2)
+
 router.route('/v1/zones')
     .get(zoneController.index)
 

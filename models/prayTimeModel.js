@@ -10,6 +10,9 @@ var prayTimeSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    hijri_date: {
+        type: String
+    },
     day: {
         type: Number,
         required: true
