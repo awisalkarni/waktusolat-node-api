@@ -56,33 +56,26 @@ exports.view = async function(req, res) {
         // praytimes = praytimes.sort({pray_time:1});
         var count = 0;
         var day = 1;
-        var prayTimesGrouped = [];
         var prayTimesArray = [];
-        
+        var prayTime = [];
 
-        var maxDay = praytimes[praytimes.length - 1].day;
-        console.log(maxDay);
+        praytimes.forEach(function(item, index) {
 
-        
-
-        prayTimesMap = groupBy(praytimes, prayerTime => prayerTime.day);
-        prayTimesArray = Array.from(prayTimesMap);
-
-        prayTimesArray.forEach(function(prayTimesDay, day) {
-
-            var prayTime = [];
-
-            prayTimesDay.forEach(function(item, index){
-
-                prayTime.push(item.prayer_time);
-
-            });
-
-            prayTimesGrouped.push(prayTime);
-
+            if (count == 0) {
+                prayTime = [];
+            }
+            // console.log(prayTime);
+            prayTime.push(parseInt(item.prayer_time));
+            count++;
+            if (count==8) {
+                prayTime.sort();
+                prayTimesArray.push(prayTime);
+                count = 0;
+            }
         });
 
-        console.log(prayTimesGrouped);
+
+        // console.log(prayTimesGrouped);
 
         res.json({
             
@@ -98,7 +91,7 @@ exports.view = async function(req, res) {
         			"Maghrib",
         			"Isyak"
         			],
-        			pray_time : prayTimesGrouped
+        			pray_time : prayTimesArray
         		},
         		zone: zone.code,
         		origin: zone.location,
@@ -107,7 +100,7 @@ exports.view = async function(req, res) {
             },
             meta: "success"
         });
-	}).group('day');
+	});
 }
 
 function groupBy(list, keyGetter) {
