@@ -43,7 +43,7 @@ exports.view = async function(req, res) {
         })
     }
 
-	PrayTime.find(query, columns, function(err, praytimes) {
+	PrayTime.find(query).sort({day : 1}).exec(function(err, praytimes) {
 		 if (err) {
             res.json({
                 status: "error",
