@@ -57,6 +57,10 @@ exports.view = async function(req, res) {
         res.json({
 
             data: {
+                zone: zone.code,
+                origin: zone.location,
+                month: monthQuery,
+                year: yearQuery,
                 pray: {
                     pray_list: [
                     "Imsak",
@@ -69,11 +73,8 @@ exports.view = async function(req, res) {
                     "Isyak"
                     ],
                     pray_time : prayTimesArray
-                },
-                zone: zone.code,
-                origin: zone.location,
-                month: monthQuery,
-                year: yearQuery
+                }
+                
             },
             meta: "success"
         });
@@ -84,26 +85,6 @@ exports.view = async function(req, res) {
             message: "Zone not found"
         })
     }
-}
-
-async function downloadPrayTimes(query){
-    var response;
-    var zone;
-
-    await Zone.findOne({code: query.zone}, {_id: 0}, function(err, row) { 
-        if (err) {
-            response = {success: false, message: err};
-        }
-        zone = row;
-    });
-
-    if (zone == undefined) {
-        response = {success: false, message: "Zone not found"};
-    }
-
-    var prayTimes = await PrayTime.find(query).sort({day: 1}).exec();
-
-    return {success: true, pray_times: prayTimes, zone: zone};
 }
 
 exports.view_version_2 = async function(req, res) {
@@ -134,7 +115,6 @@ exports.view_version_2 = async function(req, res) {
 
             count++;
             if (count==8) {
-                // prayTime.sort();
                 prayTimesArray.push(prayTime);
                 count = 0;
             }
@@ -146,7 +126,7 @@ exports.view_version_2 = async function(req, res) {
                 zone: zone,
                 month: monthQuery,
                 year: yearQuery,
-                pray_time : prayTimesArray
+                pray_times : prayTimesArray
             }
      
         });
@@ -157,6 +137,26 @@ exports.view_version_2 = async function(req, res) {
             message: "Zone not found"
         })
     }
+}
+
+async function downloadPrayTimes(query){
+    var response;
+    var zone;
+
+    await Zone.findOne({code: query.zone}, {_id: 0}, function(err, row) { 
+        if (err) {
+            response = {success: false, message: err};
+        }
+        zone = row;
+    });
+
+    if (zone == undefined) {
+        response = {success: false, message: "Zone not found"};
+    }
+
+    var prayTimes = await PrayTime.find(query).sort({day: 1}).exec();
+
+    return {success: true, pray_times: prayTimes, zone: zone};
 }
 
 function groupBy(list, keyGetter) {
