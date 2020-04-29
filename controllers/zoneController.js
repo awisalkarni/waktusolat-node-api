@@ -14,7 +14,7 @@ exports.index = function (req, res) {
             data: zone,
             count: zone.length
         });
-    });
+    }).sort({code: 1});
 };
 // Handle create zone actions
 exports.new = function (req, res) {
